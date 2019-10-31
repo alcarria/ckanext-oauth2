@@ -171,6 +171,7 @@ class OAuth2Helper(object):
         return user.name
 
     def user_json(self, user_data):
+        user_data = user_data['user']  # Fix for Feide /userinfo
         log.debug(f'user_data: {user_data}')
         email = user_data[self.profile_api_mail_field]
         user_name = user_data[self.profile_api_user_field]
